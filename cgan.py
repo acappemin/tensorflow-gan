@@ -11,7 +11,7 @@ print 'test_examples', mnist.test.num_examples
 
 # Parameters
 learning_rate = 1e-4
-k_dg = 1
+k_dg = 2
 batch_size = 256
 training_epochs = 500
 data_size = 28
