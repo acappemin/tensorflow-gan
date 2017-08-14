@@ -11,7 +11,7 @@ print 'test_examples', mnist.test.num_examples
 
 # Parameters
 learning_rate = 1e-4
-k_dg = 2
+k_dg = 1
 batch_size = 256
 training_epochs = 500
 data_size = 28
@@ -31,7 +31,7 @@ generated_x = cmodel.generative_model(
 # structure: [[out_channels, filter_height, filter_width, stride_height, stride_width]...fc_layers]
 # keep_prob_d is only effective in fc_layers except the discriminate layer
 prob_x, prob_z = cmodel.discriminative_model(
-	[x, generated_x], [[6, 5, 5, 2, 2], [12, 5, 5, 2, 2], [None, 1]], keep_prob_d)
+	[x, generated_x], [[6, 5, 5, 2, 2], [12, 5, 5, 2, 2], [None, 256], [1]], keep_prob_d)
 t_vars = tf.trainable_variables()
 d_vars = [var for var in t_vars if 'd_' in var.name]
 g_vars = [var for var in t_vars if 'g_' in var.name]
